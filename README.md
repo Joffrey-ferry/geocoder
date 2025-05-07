@@ -28,7 +28,7 @@ Pour rechercher une adresse, utilisez la méthode `search()` :
 ```php
 use JoffreyFerry\Geocoder\Geocoder;
 
-$results = Geocoder::search('10 rue de Rivoli, Paris')->get();
+$results = Geocoder::search('29 rue de Rivoli, Paris')->get();
 ```
 
 ### 2. Recherche inversée (à partir de coordonnées)
@@ -44,7 +44,7 @@ Pour limiter le nombre de résultats retournés par l'API :
 ```php
 use JoffreyFerry\Geocoder\Geocoder;
 
-$results = Geocoder::search('10 rue de Rivoli, Paris')->limit(5)->get();
+$results = Geocoder::search('rue de Rivoli, Paris')->limit(5)->get();
 ```
 
 ### 4. Filtrer par code postal ou code INSEE
@@ -52,9 +52,8 @@ Pour filtrer les résultats par code postal ou code INSEE :
 ```php
 use JoffreyFerry\Geocoder\Geocoder;
 
-$results = Geocoder::search('10 rue de Rivoli')
+$results = Geocoder::search('29 rue de Rivoli')
     ->postcode(75001)
-    ->citycode(75101)
     ->get();
 ```
 
@@ -63,7 +62,7 @@ Pour récupérer les coordonnées géographiques d'une adresse spécifique :
 ```php
 use JoffreyFerry\Geocoder\Geocoder;
 
-$coordinates = Geocoder::search('10 rue de Rivoli')->getCoordinates();
+$coordinates = Geocoder::search('29 rue de Rivoli, Paris')->getCoordinates();
 ```
 
 ---
@@ -82,19 +81,6 @@ $coordinates = Geocoder::search('10 rue de Rivoli')->getCoordinates();
 | `getCoordinates(int $index = 0)` | Récupère les coordonnées géographiques d'une adresse à partir de l'index des résultats. |
 | `getLocation(int $index = 0)`    | Récupère une adresse complète à partir de l'index des résultats.                        |
 | `getProperties(int $index = 0)`  | Retourne les propriétés d'une adresse à partir de l'index des résultats.                |
-
----
-
-## 🧪 Tests unitaires
-Pour exécuter les tests unitaires, utilisez PHPUnit :
-```bash
-vendor/bin/phpunit
-```
-
-Assurez-vous que les tests couvrent les cas suivants :
-- Recherche d'une adresse valide.
-- Recherche inversée avec des coordonnées valides.
-- Gestion des erreurs (par exemple, coordonnées invalides ou absence de résultats).
 
 ---
 
