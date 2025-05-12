@@ -26,7 +26,7 @@
 ### 1. Recherche d'une adresse
 Pour rechercher une adresse, utilisez la méthode `search()` :
 ```php
-use JoffreyFerry\Geocoder\Geocoder;
+use Neoxiel\Geocoder\Geocoder;
 
 $results = Geocoder::search('29 rue de Rivoli, Paris')->get();
 ```
@@ -34,7 +34,7 @@ $results = Geocoder::search('29 rue de Rivoli, Paris')->get();
 ### 2. Recherche inversée (à partir de coordonnées)
 Pour trouver une adresse à partir de coordonnées géographiques :
 ```php
-use JoffreyFerry\Geocoder\Geocoder;
+use Neoxiel\Geocoder\Geocoder;
 
 $location = Geocoder::reverse(48.8566, 2.3522)->getLocation();
 ```
@@ -42,7 +42,7 @@ $location = Geocoder::reverse(48.8566, 2.3522)->getLocation();
 ### 3. Limiter les résultats
 Pour limiter le nombre de résultats retournés par l'API :
 ```php
-use JoffreyFerry\Geocoder\Geocoder;
+use Neoxiel\Geocoder\Geocoder;
 
 $results = Geocoder::search('rue de Rivoli, Paris')->limit(5)->get();
 ```
@@ -50,7 +50,7 @@ $results = Geocoder::search('rue de Rivoli, Paris')->limit(5)->get();
 ### 4. Filtrer par code postal ou code INSEE
 Pour filtrer les résultats par code postal ou code INSEE :
 ```php
-use JoffreyFerry\Geocoder\Geocoder;
+use Neoxiel\Geocoder\Geocoder;
 
 $results = Geocoder::search('29 rue de Rivoli')
     ->postcode(75001)
@@ -60,7 +60,7 @@ $results = Geocoder::search('29 rue de Rivoli')
 ### 5. Récupérer les coordonnées d'une adresse
 Pour récupérer les coordonnées géographiques d'une adresse spécifique :
 ```php
-use JoffreyFerry\Geocoder\Geocoder;
+use Neoxiel\Geocoder\Geocoder;
 
 $coordinates = Geocoder::search('29 rue de Rivoli, Paris')->getCoordinates();
 ```
