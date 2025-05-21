@@ -235,6 +235,7 @@ class Geocoder
         
         if ($response->failed()) {
             Log::error('Erreur lors de la requête à l\'API de géocodage.', [
+                'userId' => auth()->id(),
                 'query' => $query,
                 'status' => $response->status(),
                 'body' => $response->body(),
