@@ -42,7 +42,7 @@ class Coordinates
      * 
      * @return float La latitude.
      */
-    public function GetLat(): float
+    public function getLat(): float
     {
         return $this->lat;
     }
