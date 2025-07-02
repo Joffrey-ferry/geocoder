@@ -12,7 +12,7 @@ class Position
      * @param float $lng Longitude
      * @param float $lat Latitude
      */
-    public function __construct(public readonly array $coordinates, public readonly array $properties) 
+    public function __construct(public array $coordinates, public array $properties) 
     {
         $this->coordinates = [
             'lng' => $coordinates[0],
