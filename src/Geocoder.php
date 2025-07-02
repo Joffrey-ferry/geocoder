@@ -70,6 +70,21 @@ class Geocoder
     }
 
     /**
+     * Récupère les coordonnées géographiques d'une adresse et ses propriétés associées.
+     * 
+     * @param array $features Le résultat de recherche.
+     * @param int $index L'index de l'adresse à récupérer.
+     * @return null|Position Les coordonnées géographiques de l'adresse + les propriétés associées.
+     */
+    public static function getPosition($index = 0): ?Position
+    {
+        self::geocoder();
+
+        return self::position(self::$features, $index) ?? null;
+    }
+
+
+    /**
      * cherche les adresses à partir de ses coordonnées géographiques.
      * 
      * @param float $lat Latitude de l'adresse.
@@ -292,4 +307,24 @@ class Geocoder
 
         return null;
     }
+
+    private static function position(array $features, int $index = 0): ?Position
+    {
+        if(
+            count($features) && 
+            isset($features[$index]['geometry']['coordinates']) && 
+            isset($features[$index]['properties'])
+        ){
+            return Position::make($features[$index]['geometry']['coordinates'], $features[$index]['properties']);
+        }
+
+        if (self::$throwException) {
+            throw new \Exception(self::ERROR_MISSING_COORDINATES);
+        }
+
+        return null;
+    }
+
+
+
 }
