@@ -5,6 +5,7 @@ namespace Neoxiel\Geocoder;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 /**
  * Classe permettant d'utiliser l'api adresse du gouvernement
@@ -152,12 +153,12 @@ class Geocoder
     /**
      * Définit le code postal pour la recherche.
      * 
-     * @param int $postcode Le code postal à utiliser.
+     * @param int|string $postcode Le code postal à utiliser.
      * @return static
      */
-    public static function postcode(int $postcode): static
+    public static function postcode(int|string $postcode): static
     {
-        self::$postcode = "$postcode";
+        self::$postcode = str_pad((string)$postcode, 5, '0', STR_PAD_LEFT);
 
         return new static;
     }
