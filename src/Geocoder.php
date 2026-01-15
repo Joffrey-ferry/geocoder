@@ -5,7 +5,6 @@ namespace Neoxiel\Geocoder;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 
 /**
  * Classe permettant d'utiliser l'api adresse du gouvernement
